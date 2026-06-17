@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-THVdMG5nSbojPRbLYx3hHcumuNmlWhrlWtPYRdqDhJ0='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, financial &amp; technology advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operational, financial, and technology systems to scale. Edmonton, Alberta." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23070708'/%3E%3Ctext x='32' y='30' font-family='Helvetica,Arial,sans-serif' font-size='22' font-weight='300' letter-spacing='1' fill='%23d6d6d6' text-anchor='middle'%3EM%3C/text%3E%3Cline x1='20' y1='34' x2='44' y2='34' stroke='%23d6d6d6' stroke-width='1'/%3E%3Ctext x='32' y='52' font-family='Helvetica,Arial,sans-serif' font-size='22' font-weight='300' letter-spacing='1' fill='%23d6d6d6' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
 <style>
+  /* self-hosted fonts (latin subset) — no third-party requests */
+  @font-face{font-family:'Montserrat';font-style:normal;font-weight:300 500;font-display:swap;src:url('fonts/montserrat.woff2') format('woff2');}
+  @font-face{font-family:'Spectral';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/spectral-300.woff2') format('woff2');}
+  @font-face{font-family:'Spectral';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/spectral-400.woff2') format('woff2');}
+  @font-face{font-family:'Spectral';font-style:italic;font-weight:300;font-display:swap;src:url('fonts/spectral-300-italic.woff2') format('woff2');}
+
   :root{
     --ink:#070708;
     --ink-2:#0d0d10;
@@ -123,11 +127,13 @@
   .scroll-cue{
     position:absolute;
     bottom:2.2rem;
-    left:50%;
-    transform:translateX(-50%);
+    left:0;
+    right:0;
+    text-align:center;
     font-family:var(--display);
     font-size:.62rem;
     letter-spacing:.3em;
+    text-indent:.3em;
     text-transform:uppercase;
     color:var(--muted-dim);
     text-decoration:none;
