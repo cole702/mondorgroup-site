@@ -1,8 +1,15 @@
 <!DOCTYPE html>
+<!--
+  Mondor Group
+  ----------------------------------------------------------
+  Built by hand. No site builder, no framework, no template.
+  If you're reading this, you're my kind of person.
+  Let's build something.   cole@mondorgroup.com
+-->
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-3CnFFvISfCA/xNas1IsQIRBNhqtlm7h8Dsmani5LxJU=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-P7I3ZDqOm0e/J6LjOUUPIVLoWrQsKSBpmV9Y512C4Ms=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategy advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -76,6 +83,11 @@
 
   /* film grain overlay */
   body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  /* ambient cursor glow (desktop, follows the pointer) */
+  .cursor-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .8s ease;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%), rgba(126,138,166,.09), rgba(126,138,166,0) 72%);}
+  body.has-cursor .cursor-glow{opacity:1;}
+  @media (hover:none){.cursor-glow{display:none;}}
 
   /* ---------- focus ---------- */
   a:focus-visible, button:focus-visible{
@@ -342,6 +354,22 @@
     .wm-rule{animation:none;}
     .wm-top{animation:none;}
     .scroll-cue span{animation:none;}
+    .cursor-glow{display:none;}
+  }
+
+  /* ---------- print / PDF ---------- */
+  @media print{
+    body{background:#fff !important;color:#1a1a1a !important;}
+    body::after,.cursor-glow,.scroll-cue,.skip-link{display:none !important;}
+    .reveal,.h-el{opacity:1 !important;transform:none !important;}
+    .wm-top{-webkit-text-fill-color:#1a1a1a !important;color:#1a1a1a !important;background:none !important;}
+    .wm-rule{background:#1a1a1a !important;}
+    .eyebrow,.wm-bot,.hero-tag,.lead,.lead .soft,.body-copy,.cap-term,.cap-desc,.prompt,.mail-link,.foot-meta,.powered{color:#1a1a1a !important;}
+    a{color:#1a1a1a !important;}
+    .cap-head .hr,.cap-row{border-color:#ccc !important;}
+    .hero{min-height:auto !important;padding:1rem 0 2rem !important;}
+    section{padding:1.2rem 0 !important;}
+    .secondary-link a[href^="http"]::after{content:" (" attr(href) ")";font-size:.85em;}
   }
 </style>
 <script type="application/ld+json">
@@ -372,6 +400,8 @@
 </script>
 </head>
 <body>
+
+  <div class="cursor-glow" aria-hidden="true"></div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -487,6 +517,18 @@
     window.addEventListener('scroll', hideCue, { passive: true });
     hideCue();
   }
+
+  var glow = document.querySelector('.cursor-glow');
+  if (glow && !reduce && window.matchMedia('(hover: hover)').matches) {
+    window.addEventListener('pointermove', function(e){
+      glow.style.setProperty('--mx', e.clientX + 'px');
+      glow.style.setProperty('--my', e.clientY + 'px');
+      document.body.classList.add('has-cursor');
+    }, { passive: true });
+  }
+
+  console.log('%cMondor Group', 'font:500 20px Montserrat,system-ui,sans-serif;color:#e9e9ea;letter-spacing:.08em;');
+  console.log('%cBuilt by hand. No site builder, no framework, no template.\nIf you have got the console open, you are exactly the kind of person I like working with.\n→ cole@mondorgroup.com', 'color:#8c8c93;font:14px/1.7 Georgia,serif;');
 </script>
 <!-- Cloudflare Web Analytics (cookieless) -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e5b90d0a46604be28b9b8e1d89f0bd98"}'></script>
