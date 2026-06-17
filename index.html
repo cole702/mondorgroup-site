@@ -107,7 +107,9 @@
     position:relative;
   }
 
-  .hero .eyebrow{margin-bottom:2.6rem;text-indent:.32em;}
+  .hero .eyebrow{margin-bottom:2.6rem;text-indent:.32em;line-height:1.5;}
+  .hero .eyebrow span{display:block;}
+  .hero .eyebrow span + span{margin-top:.55em;}
 
   /* wordmark lockup */
   .wordmark{
@@ -194,6 +196,8 @@
     color:var(--silver);
   }
   .body-copy + .body-copy{margin-top:1.1rem;}
+
+  #work .wrap{text-align:center;}
 
   /* ---------- capabilities ---------- */
   .cap-head{
@@ -292,7 +296,7 @@
   }
   /* cheeky "powered by" badge — yes, he built it himself */
   .powered{
-    margin-top:1.9rem;
+    margin-top:0;
     display:inline-flex;
     align-items:center;
     gap:.6em;
@@ -372,7 +376,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="hero">
-    <p class="eyebrow h-el h-1">Independent advisory &nbsp;·&nbsp; Edmonton, Alberta</p>
+    <p class="eyebrow h-el h-1"><span>Independent advisory</span><span>Edmonton, AB</span></p>
 
     <h1 class="wordmark" aria-label="Mondor Group">
       <span class="wm-top h-el h-2" aria-hidden="true">Mondor</span>
@@ -390,8 +394,8 @@
     <section id="work">
       <div class="wrap">
         <h2 class="sr-only">About Mondor Group</h2>
-        <p class="lead reveal">I'm an operator who builds the systems a business actually runs on. <span class="soft">Twelve-plus years running operations from the inside, including building and owning an independent pharmacy, now brought to the work that decides whether a growing business thrives or strains under its own weight.</span></p>
-        <p class="body-copy reveal">That's the unglamorous side of growth: pro formas and projections, process and systems design, the operational backbone a business runs on as it scales. The industry rarely changes the work. What matters is whether that backbone can carry the next stage of growth, and that is what I build.</p>
+        <p class="lead reveal">I'm an operator who builds the systems a business actually runs on. <span class="soft">Twelve-plus years inside real operations, including owning an independent pharmacy. Now I help growing businesses scale without straining under their own weight.</span></p>
+        <p class="body-copy reveal">That's the unglamorous side of growth: pro formas and projections, process and systems design, the operational backbone a business runs on as it scales. Whatever the industry, building that backbone is the work.</p>
       </div>
     </section>
 
@@ -441,10 +445,6 @@
   </main>
 
   <footer>
-    <div class="foot-meta">
-      A trade name of Mondor Holdings Ltd. &nbsp;·&nbsp; Edmonton, Alberta<br />
-      © <span id="yr">2026</span>
-    </div>
     <div class="powered" title="No website builder was harmed in the making of this site.">
       <svg class="powered-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
         <rect x="2.5" y="2.5" width="59" height="59" rx="14" stroke="currentColor" stroke-opacity=".45" stroke-width="2"></rect>
@@ -453,6 +453,10 @@
         <text x="32" y="56" text-anchor="middle" fill="currentColor" font-family="Montserrat, sans-serif" font-weight="400" font-size="25" letter-spacing="1">G</text>
       </svg>
       Powered by Mondor Group
+    </div>
+    <div class="foot-meta">
+      A trade name of Mondor Holdings Ltd.<br />
+      © <span id="yr">2026</span>
     </div>
   </footer>
 
