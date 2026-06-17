@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-THVdMG5nSbojPRbLYx3hHcumuNmlWhrlWtPYRdqDhJ0='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-THVdMG5nSbojPRbLYx3hHcumuNmlWhrlWtPYRdqDhJ0=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, financial &amp; technology advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operational, financial, and technology systems to scale. Edmonton, Alberta." />
@@ -377,5 +377,7 @@
     els.forEach(function(el){ io.observe(el); });
   }
 </script>
+<!-- Cloudflare Web Analytics (cookieless) -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e5b90d0a46604be28b9b8e1d89f0bd98"}'></script>
 </body>
 </html>
