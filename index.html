@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-3CnFFvISfCA/xNas1IsQIRBNhqtlm7h8Dsmani5LxJU=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mondor Group · Operations, financial &amp; technology advisory</title>
-<meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operational, financial, and technology systems to scale. Edmonton, Alberta." />
+<title>Mondor Group · Operations, technology &amp; strategy advisory</title>
+<meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
 <link rel="canonical" href="https://mondorgroup.com/" />
 <meta name="theme-color" content="#070708" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -15,15 +15,15 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Mondor Group" />
 <meta property="og:url" content="https://mondorgroup.com/" />
-<meta property="og:title" content="Mondor Group · Operations, financial &amp; technology advisory" />
-<meta property="og:description" content="Independent advisory helping owner-run and growing businesses build the operational, financial, and technology systems to scale. Edmonton, Alberta." />
+<meta property="og:title" content="Mondor Group · Operations, technology &amp; strategy advisory" />
+<meta property="og:description" content="Independent advisory helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
 <meta property="og:image" content="https://mondorgroup.com/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_CA" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Mondor Group · Operations, financial &amp; technology advisory" />
-<meta name="twitter:description" content="Independent advisory helping owner-run and growing businesses build the operational, financial, and technology systems to scale. Edmonton, Alberta." />
+<meta name="twitter:title" content="Mondor Group · Operations, technology &amp; strategy advisory" />
+<meta name="twitter:description" content="Independent advisory helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
 <meta name="twitter:image" content="https://mondorgroup.com/og-image.png" />
 <link rel="preload" href="fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="fonts/spectral-300.woff2" as="font" type="font/woff2" crossorigin />
@@ -107,7 +107,7 @@
     position:relative;
   }
 
-  .hero .eyebrow{margin-bottom:2.6rem;}
+  .hero .eyebrow{margin-bottom:2.6rem;text-indent:.32em;}
 
   /* wordmark lockup */
   .wordmark{
@@ -271,6 +271,10 @@
   }
   .secondary-link a:hover{color:var(--silver);border-color:var(--line);}
 
+  /* inline icons — inherit the link's color + hover */
+  .ic{width:1em;height:1em;display:inline-block;vertical-align:-.14em;margin-right:.55em;}
+  .ic-li{width:1.15em;height:1.15em;vertical-align:-.22em;margin-right:.5em;}
+
   /* ---------- footer ---------- */
   footer{
     border-top:1px solid var(--line-soft);
@@ -295,6 +299,23 @@
     color:var(--muted-dim);
     line-height:1.8;
   }
+  /* cheeky "powered by" badge — yes, he built it himself */
+  .powered{
+    margin-top:1.9rem;
+    display:inline-flex;
+    align-items:center;
+    gap:.6em;
+    font-family:var(--display);
+    font-weight:400;
+    font-size:.57rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--muted-dim);
+    opacity:.7;
+    transition:opacity .3s ease;
+  }
+  .powered:hover{opacity:1;}
+  .powered-mark{width:1.55em;height:1.55em;flex:none;}
 
   /* ---------- motion ---------- */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.6,.2,1),transform .9s cubic-bezier(.2,.6,.2,1);}
@@ -334,7 +355,7 @@
   "@type": "ProfessionalService",
   "name": "Mondor Group",
   "legalName": "Mondor Holdings Ltd.",
-  "description": "Independent operations, financial, and technology advisory for owner-run and growing businesses.",
+  "description": "Independent operations, technology, and strategy advisory for owner-run and growing businesses.",
   "url": "https://mondorgroup.com",
   "email": "cole@mondorgroup.com",
   "image": "https://mondorgroup.com/og-image.png",
@@ -350,7 +371,7 @@
     "name": "Cole Mondor",
     "sameAs": "https://www.linkedin.com/in/-cole-mondor/"
   },
-  "knowsAbout": ["Operations & strategy", "Financial modeling", "Systems & process", "Technology & automation", "Privacy & data protection"],
+  "knowsAbout": ["Operations & strategy", "Modeling & forecasting", "Systems & process", "Technology & automation", "Privacy & data protection"],
   "sameAs": ["https://www.linkedin.com/in/-cole-mondor/"]
 }
 </script>
@@ -368,7 +389,7 @@
       <span class="wm-bot h-el h-3" aria-hidden="true">Group</span>
     </h1>
 
-    <p class="hero-tag h-el h-3">The operational, financial, and technology systems behind a business built to grow.</p>
+    <p class="hero-tag h-el h-3">The operations, technology, and strategy behind a business built to grow.</p>
 
     <a class="scroll-cue h-el h-cue" href="#work" aria-label="Scroll to content"><span></span>Scroll</a>
   </header>
@@ -378,8 +399,8 @@
     <section id="work">
       <div class="wrap">
         <h2 class="sr-only">About Mondor Group</h2>
-        <p class="lead reveal">I'm a pharmacist and operator who builds the systems behind how a business runs. <span class="soft">Twelve-plus years running healthcare operations, including owning and running my own pharmacy, now applied independently to the work that decides whether a growing operation thrives or strains under its own weight.</span></p>
-        <p class="body-copy reveal">That's the unglamorous side of growth: financial models and pro formas, process and systems design, the infrastructure that holds an operation together as it scales. It's rooted in pharmacy, but very little of it is pharmacy-specific. Most of it applies to any owner-run or growing business.</p>
+        <p class="lead reveal">I'm an operator who builds the systems a business actually runs on. <span class="soft">Twelve-plus years running operations from the inside, including building and owning an independent pharmacy, now brought to the work that decides whether a growing business thrives or strains under its own weight.</span></p>
+        <p class="body-copy reveal">That's the unglamorous side of growth: pro formas and projections, process and systems design, the operational backbone a business runs on as it scales. The industry rarely changes the work. What matters is whether that backbone can carry the next stage of growth, and that is what I build.</p>
       </div>
     </section>
 
@@ -395,12 +416,12 @@
           <div class="cap-desc">Untangling how an operation actually runs, and rebuilding it to scale cleanly.</div>
         </div>
         <div class="cap-row reveal">
-          <div class="cap-term">Financial modeling</div>
+          <div class="cap-term">Modeling &amp; forecasting</div>
           <div class="cap-desc">Pro formas, projections, and a clear-eyed look at the numbers behind a decision.</div>
         </div>
         <div class="cap-row reveal">
           <div class="cap-term">Systems &amp; process</div>
-          <div class="cap-desc">The operational and financial infrastructure that holds a business together as it grows.</div>
+          <div class="cap-desc">The connective layer between people, tools, and numbers, so the business runs without you holding it together.</div>
         </div>
         <div class="cap-row reveal">
           <div class="cap-term">Technology &amp; automation</div>
@@ -420,9 +441,9 @@
     <section id="contact" class="contact">
       <div class="wrap">
         <h2 class="sr-only">Contact</h2>
-        <p class="prompt reveal">Got a hard problem in the numbers or systems behind your business? Let's talk it through.</p>
-        <p class="reveal"><a class="mail-link" href="mailto:cole@mondorgroup.com">cole@mondorgroup.com</a></p>
-        <p class="secondary-link reveal"><a href="https://www.linkedin.com/in/-cole-mondor/" target="_blank" rel="noopener">Connect on LinkedIn</a></p>
+        <p class="prompt reveal">Every growing business eventually outgrows the systems it was built on. When yours does, let's talk.</p>
+        <p class="reveal"><a class="mail-link" href="mailto:cole@mondorgroup.com"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>cole@mondorgroup.com</a></p>
+        <p class="secondary-link reveal"><a href="https://www.linkedin.com/in/-cole-mondor/" target="_blank" rel="noopener"><svg class="ic ic-li" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>Connect on LinkedIn</a></p>
       </div>
     </section>
 
@@ -433,6 +454,15 @@
     <div class="foot-meta">
       A trade name of Mondor Holdings Ltd. &nbsp;·&nbsp; Edmonton, Alberta<br />
       © <span id="yr">2026</span> Mondor Holdings Ltd.
+    </div>
+    <div class="powered" title="No website builder was harmed in the making of this site.">
+      <svg class="powered-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="2.5" y="2.5" width="59" height="59" rx="14" stroke="currentColor" stroke-opacity=".45" stroke-width="2"></rect>
+        <text x="32" y="29" text-anchor="middle" fill="currentColor" font-family="Montserrat, sans-serif" font-weight="400" font-size="25" letter-spacing="1">M</text>
+        <line x1="21" y1="34" x2="43" y2="34" stroke="currentColor" stroke-width="2"></line>
+        <text x="32" y="56" text-anchor="middle" fill="currentColor" font-family="Montserrat, sans-serif" font-weight="400" font-size="25" letter-spacing="1">G</text>
+      </svg>
+      Powered by Mondor Group
     </div>
   </footer>
 
