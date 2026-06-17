@@ -2,7 +2,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-THVdMG5nSbojPRbLYx3hHcumuNmlWhrlWtPYRdqDhJ0=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-3CnFFvISfCA/xNas1IsQIRBNhqtlm7h8Dsmani5LxJU=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, financial &amp; technology advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operational, financial, and technology systems to scale. Edmonton, Alberta." />
@@ -172,7 +172,8 @@
     color:var(--muted-dim);
     text-decoration:none;
   }
-  .scroll-cue span{display:block;margin:0 auto .5rem;width:1px;height:2.4rem;background:linear-gradient(180deg,var(--line) 0%,transparent 100%);}
+  .scroll-cue span{display:block;margin:0 auto .5rem;width:1px;height:2.4rem;background:linear-gradient(180deg,var(--line) 0%,transparent 100%);animation:cue-bob 2.1s ease-in-out infinite;}
+  @keyframes cue-bob{0%,100%{transform:translateY(0);opacity:.4;}50%{transform:translateY(6px);opacity:1;}}
 
   /* ---------- generic section ---------- */
   section{padding:clamp(4.5rem,11vw,8rem) 0;}
@@ -306,6 +307,7 @@
   body.loaded .wm-rule{animation:draw 1.1s .55s cubic-bezier(.2,.6,.2,1) both;}
   body.loaded .h-3{transition-delay:.7s;}
   body.loaded .h-cue{transition-delay:1.1s;}
+  body.loaded .scroll-cue{transition:opacity .45s ease;}
   @keyframes draw{from{transform:scaleX(0);}to{transform:scaleX(1);}}
 
   body.loaded .wm-top{animation:wm-sheen 1.9s .6s ease-out forwards;}
@@ -323,6 +325,7 @@
     .reveal,.h-el{opacity:1;transform:none;transition:none;}
     .wm-rule{animation:none;}
     .wm-top{animation:none;}
+    .scroll-cue span{animation:none;}
   }
 </style>
 <script type="application/ld+json">
@@ -448,6 +451,17 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     els.forEach(function(el){ io.observe(el); });
+  }
+
+  var cue = document.querySelector('.scroll-cue');
+  if (cue) {
+    var hideCue = function(){
+      var gone = window.scrollY > 40;
+      cue.style.opacity = gone ? '0' : '';
+      cue.style.pointerEvents = gone ? 'none' : '';
+    };
+    window.addEventListener('scroll', hideCue, { passive: true });
+    hideCue();
   }
 </script>
 <!-- Cloudflare Web Analytics (cookieless) -->
