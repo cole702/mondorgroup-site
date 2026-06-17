@@ -9,7 +9,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-P7I3ZDqOm0e/J6LjOUUPIVLoWrQsKSBpmV9Y512C4Ms=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-1JQVO9/phUVWbs0QBnIudoKE/EeIcK69ha8NPe4qeug=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategy advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -228,8 +228,11 @@
     padding:1.7rem 0;
     border-top:1px solid var(--line-soft);
     align-items:baseline;
+    transition:transform .4s cubic-bezier(.2,.6,.2,1), background .4s ease;
   }
   .cap-row:last-child{border-bottom:1px solid var(--line-soft);}
+  .cap-row:hover{transform:translateX(10px);background:linear-gradient(90deg,rgba(255,255,255,.035),transparent 55%);}
+  .cap-row:hover .cap-desc{color:var(--silver);}
   .cap-term{
     font-family:var(--display);
     font-weight:400;
@@ -244,6 +247,7 @@
     font-weight:300;
     color:var(--muted);
     line-height:1.55;
+    transition:color .35s ease;
   }
 
   /* ---------- contact ---------- */
@@ -266,7 +270,7 @@
     color:var(--silver-bright);
     padding:.5rem .5rem .4rem;
     border-bottom:1px solid var(--line);
-    transition:border-color .35s ease, color .35s ease;
+    transition:border-color .35s ease, color .35s ease, transform .3s cubic-bezier(.2,.6,.2,1);
   }
   .mail-link:hover{color:#fff;border-color:var(--silver);}
 
@@ -282,7 +286,7 @@
     display:inline-block;
     text-decoration:none;
     border-bottom:1px solid transparent;
-    transition:color .3s ease,border-color .3s ease;
+    transition:color .3s ease,border-color .3s ease,transform .3s cubic-bezier(.2,.6,.2,1);
     padding:.35rem .35rem;
   }
   .secondary-link a:hover{color:var(--silver);border-color:var(--line);}
@@ -355,6 +359,7 @@
     .wm-top{animation:none;}
     .scroll-cue span{animation:none;}
     .cursor-glow{display:none;}
+    .cap-row:hover{transform:none;}
   }
 
   /* ---------- print / PDF ---------- */
@@ -525,6 +530,38 @@
       glow.style.setProperty('--my', e.clientY + 'px');
       document.body.classList.add('has-cursor');
     }, { passive: true });
+  }
+
+  if (!reduce && window.matchMedia('(hover: hover)').matches) {
+    [['.mail-link', 0.35, 12], ['.secondary-link a', 0.4, 10]].forEach(function(p){
+      var el = document.querySelector(p[0]); if (!el) return;
+      el.addEventListener('pointermove', function(e){
+        var r = el.getBoundingClientRect(), cap = p[2];
+        var dx = Math.max(-cap, Math.min(cap, (e.clientX - (r.left + r.width/2)) * p[1]));
+        var dy = Math.max(-cap*0.6, Math.min(cap*0.6, (e.clientY - (r.top + r.height/2)) * 0.55));
+        el.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+      });
+      el.addEventListener('pointerleave', function(){ el.style.transform = ''; });
+    });
+
+    var pw = document.querySelector('.wordmark'),
+        pe = document.querySelector('.hero .eyebrow'),
+        pt = document.querySelector('.hero-tag');
+    var onPara = function(){
+      var y = window.scrollY;
+      if (y <= window.innerHeight) {
+        if (pw) pw.style.transform = 'translateY(' + (y*0.10) + 'px)';
+        if (pe) pe.style.transform = 'translateY(' + (y*0.18) + 'px)';
+        if (pt) pt.style.transform = 'translateY(' + (y*0.05) + 'px)';
+      }
+    };
+    window.addEventListener('load', function(){
+      setTimeout(function(){
+        if (pe) pe.style.transition = 'none';
+        if (pt) pt.style.transition = 'none';
+        window.addEventListener('scroll', onPara, { passive: true });
+      }, 1400);
+    });
   }
 
   console.log('%cMondor Group', 'font:500 20px Montserrat,system-ui,sans-serif;color:#e9e9ea;letter-spacing:.08em;');
