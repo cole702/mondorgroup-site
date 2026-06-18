@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Colophon · Mondor Group</title>
+<meta name="theme-color" content="#070708" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<style>
+  @font-face{font-family:'Montserrat';font-style:normal;font-weight:300 500;font-display:swap;src:url('/fonts/montserrat.woff2') format('woff2');}
+  @font-face{font-family:'Spectral';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/spectral-300.woff2') format('woff2');}
+  @font-face{font-family:'Spectral';font-style:italic;font-weight:300;font-display:swap;src:url('/fonts/spectral-300-italic.woff2') format('woff2');}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  ::selection{background:rgba(63,149,83,.32);color:#f4f4f5;}
+  body{
+    min-height:100vh;min-height:100svh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:4rem 1.6rem;
+    font-family:'Spectral',Georgia,serif;color:#d4d4d6;background:#070708;
+    background-image:radial-gradient(ellipse 90% 70% at 50% 32%, #16161b 0%, #0a0a0c 52%, #050506 100%);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .wrap{width:100%;max-width:34rem;text-align:center;}
+  .mark{font-family:'Montserrat',sans-serif;font-weight:300;line-height:1;margin-bottom:2.4rem;}
+  .mark .t{display:block;font-size:clamp(1.4rem,5vw,1.9rem);letter-spacing:.26em;text-indent:.26em;text-transform:uppercase;color:#e9e9ea;}
+  .mark .r{display:block;height:1px;width:3.4rem;margin:.5rem auto;background:linear-gradient(90deg,transparent,rgba(63,149,83,.85),transparent);}
+  .mark .b{display:block;font-size:clamp(.58rem,2.4vw,.78rem);letter-spacing:.6em;text-indent:.6em;text-transform:uppercase;color:#bdbdc2;}
+  .eyebrow{font-family:'Montserrat',sans-serif;font-size:.66rem;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;color:#8c8c93;margin-bottom:1.4rem;}
+  .lead{font-family:'Spectral',Georgia,serif;font-weight:300;font-size:clamp(1.3rem,4.5vw,1.7rem);line-height:1.3;color:#f1f1f2;text-wrap:balance;}
+  .sub{font-family:'Spectral',Georgia,serif;font-weight:300;font-size:1rem;line-height:1.6;color:#9a9aa0;margin-top:1rem;text-wrap:pretty;}
+  .specs{text-align:left;margin:2.8rem auto 0;}
+  .row{padding:.85rem 0;border-top:1px solid rgba(255,255,255,.07);}
+  .row:first-child{border-top:none;}
+  dt{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:#3f9553;margin-bottom:.35rem;}
+  dd{font-family:'Spectral',Georgia,serif;font-weight:300;font-size:1rem;line-height:1.5;color:#cfcfd2;}
+  .home{
+    display:inline-block;margin-top:3rem;font-family:'Montserrat',sans-serif;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+    color:#d4d4d6;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.18);padding:.45rem .3rem;
+    transition:border-color .3s ease,color .3s ease;
+  }
+  .home:hover{color:#fff;border-color:#3f9553;}
+  .home:focus-visible{outline:1px solid #3f9553;outline-offset:4px;border-radius:1px;}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="mark"><span class="t">Mondor</span><span class="r"></span><span class="b">Group</span></div>
+    <p class="eyebrow">Colophon</p>
+    <h1 class="lead">This site was built by hand.</h1>
+    <p class="sub">No site builder, no framework, no template. One HTML file, written and tuned line by line.</p>
+
+    <dl class="specs">
+      <div class="row"><dt>Type</dt><dd>Montserrat and Spectral, self-hosted (variable woff2, latin subset).</dd></div>
+      <div class="row"><dt>Code</dt><dd>A single hand-written file. No framework, no build step, no dependencies.</dd></div>
+      <div class="row"><dt>Security</dt><dd>Strict Content-Security-Policy, security.txt, DNSSEC, and SPF / DKIM / DMARC email authentication.</dd></div>
+      <div class="row"><dt>Resilience</dt><dd>Installable and works offline (service worker). Fully readable with JavaScript turned off.</dd></div>
+      <div class="row"><dt>Performance</dt><dd>Near-perfect Lighthouse. Preloaded fonts, deferred analytics, no render-blocking.</dd></div>
+      <div class="row"><dt>Accent</dt><dd>A deep forest green. Because the work is about growth.</dd></div>
+      <div class="row"><dt>Hosting</dt><dd>GitHub Pages on a custom domain, with automatic HTTPS.</dd></div>
+    </dl>
+
+    <a class="home" href="/">Return to Mondor Group</a>
+  </main>
+</body>
+</html>
