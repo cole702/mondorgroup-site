@@ -9,7 +9,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-1JQVO9/phUVWbs0QBnIudoKE/EeIcK69ha8NPe4qeug=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-JsrqWL5aeFyecW7+GiXbxIuxqXX4K+oohU2uNpWD/Tw=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategy advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -199,15 +199,14 @@
     color:var(--silver-bright);
     letter-spacing:.005em;
   }
-  .lead .soft{color:var(--muted);}
-
-  .body-copy{
-    margin-top:1.8rem;
-    font-size:1.06rem;
+  .lead-detail{
+    margin-top:1.9rem;
+    font-size:clamp(1.04rem,2.2vw,1.2rem);
     font-weight:300;
-    color:var(--silver);
+    line-height:1.6;
+    color:var(--muted);
   }
-  .body-copy + .body-copy{margin-top:1.1rem;}
+  .lead-detail + .lead-detail{margin-top:1.15rem;}
 
   #work .wrap{text-align:center;}
 
@@ -231,8 +230,12 @@
     transition:transform .4s cubic-bezier(.2,.6,.2,1), background .4s ease;
   }
   .cap-row:last-child{border-bottom:1px solid var(--line-soft);}
-  .cap-row:hover{transform:translateX(10px);background:linear-gradient(90deg,rgba(255,255,255,.035),transparent 55%);}
-  .cap-row:hover .cap-desc{color:var(--silver);}
+  .cap-row.active{transform:translateX(10px);background:linear-gradient(90deg,rgba(255,255,255,.04),transparent 55%);}
+  .cap-row.active .cap-desc{color:var(--silver);}
+  @media (hover:hover){
+    .cap-row:hover{transform:translateX(10px);background:linear-gradient(90deg,rgba(255,255,255,.035),transparent 55%);}
+    .cap-row:hover .cap-desc{color:var(--silver);}
+  }
   .cap-term{
     font-family:var(--display);
     font-weight:400;
@@ -290,6 +293,10 @@
     padding:.35rem .35rem;
   }
   .secondary-link a:hover{color:var(--silver);border-color:var(--line);}
+
+  /* gentle attention pulse when the contact section is reached */
+  @keyframes contact-pulse{0%,100%{scale:1;}50%{scale:1.055;}}
+  .mail-link.pulse, .secondary-link a.pulse{animation:contact-pulse 1.25s ease-in-out 2;}
 
   /* inline icons — inherit the link's color + hover */
   .ic{width:1em;height:1em;display:inline-block;vertical-align:-.14em;margin-right:.55em;}
@@ -360,6 +367,8 @@
     .scroll-cue span{animation:none;}
     .cursor-glow{display:none;}
     .cap-row:hover{transform:none;}
+    .cap-row.active{transform:none;}
+    .mail-link.pulse,.secondary-link a.pulse{animation:none;}
   }
 
   /* ---------- print / PDF ---------- */
@@ -429,8 +438,9 @@
     <section id="work">
       <div class="wrap">
         <h2 class="sr-only">About Mondor Group</h2>
-        <p class="lead reveal">I'm an operator who builds the systems a business actually runs on. <span class="soft">Twelve-plus years inside real operations, including owning an independent pharmacy. Now I help growing businesses scale without straining under their own weight.</span></p>
-        <p class="body-copy reveal">That's the unglamorous side of growth: pro formas and projections, process and systems design, the operational backbone a business runs on as it scales. Whatever the industry, building that backbone is the work.</p>
+        <p class="lead reveal">I'm an operator who builds the systems a business actually runs on.</p>
+        <p class="lead-detail reveal">Twelve-plus years inside real operations, including owning an independent pharmacy. Now I help growing businesses scale without straining under their own weight.</p>
+        <p class="lead-detail reveal">That's the unglamorous side of growth: pro formas and projections, process and systems design, the operational backbone a business runs on as it scales. Whatever the industry, building that backbone is the work.</p>
       </div>
     </section>
 
@@ -510,6 +520,28 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     els.forEach(function(el){ io.observe(el); });
+  }
+
+  if ('IntersectionObserver' in window) {
+    // scope rows light up as they cross the viewport center
+    var rowObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ e.target.classList.toggle('active', e.isIntersecting); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    document.querySelectorAll('.cap-row').forEach(function(r){ rowObs.observe(r); });
+
+    // pulse the contact links once they come into view
+    var contact = document.getElementById('contact');
+    if (contact && !reduce) {
+      var cObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) {
+            document.querySelectorAll('.mail-link, .secondary-link a').forEach(function(el){ el.classList.add('pulse'); });
+            cObs.disconnect();
+          }
+        });
+      }, { threshold: 0.55 });
+      cObs.observe(contact);
+    }
   }
 
   var cue = document.querySelector('.scroll-cue');
