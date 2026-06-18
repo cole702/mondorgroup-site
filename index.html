@@ -9,7 +9,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-DTqMaIpfYc53BaK4CxuqxlhpEM2+3FNTEe0JqXa5XbM=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-RrJfae0zLM7hGW+kfS4mTbLi9rGjxv4gUFLguocsd0Q=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategic advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -64,8 +64,6 @@
     font-family:var(--serif);
     color:var(--silver);
     background:var(--ink);
-    background-image:radial-gradient(ellipse 90% 70% at 50% 34%, #16161b 0%, #0a0a0c 52%, #050506 100%);
-    background-attachment:fixed;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
@@ -80,6 +78,9 @@
 
   .skip-link{position:absolute;left:.5rem;top:-3.5rem;z-index:200;font-family:var(--display);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--silver-bright);background:var(--ink-2);border:1px solid var(--line);border-radius:2px;padding:.6rem .9rem;transition:top .2s ease;}
   .skip-link:focus{top:.5rem;}
+
+  /* fixed ambient gradient backdrop — composited layer instead of background-attachment:fixed (avoids per-frame repaint / scroll jank) */
+  body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse 90% 70% at 50% 34%, #16161b 0%, #0a0a0c 52%, #050506 100%);}
 
   /* film grain overlay */
   body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
@@ -397,7 +398,7 @@
     transition:opacity .3s ease;
   }
   .powered:hover{opacity:1;}
-  .powered-mark{width:1.55em;height:1.55em;flex:none;}
+  .powered-mark{width:2.1em;height:2.1em;flex:none;}
 
   /* ---------- motion ---------- */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.6,.2,1),transform .9s cubic-bezier(.2,.6,.2,1);}
@@ -437,7 +438,7 @@
   /* ---------- print / PDF ---------- */
   @media print{
     body{background:#fff !important;color:#1a1a1a !important;}
-    body::after,.cursor-glow,.scroll-cue,.skip-link{display:none !important;}
+    body::before,body::after,.cursor-glow,.scroll-cue,.skip-link{display:none !important;}
     .reveal,.h-el{opacity:1 !important;transform:none !important;}
     .wm-top{-webkit-text-fill-color:#1a1a1a !important;color:#1a1a1a !important;background:none !important;}
     .wm-rule{background:#1a1a1a !important;}
@@ -644,16 +645,29 @@
     }
   }
 
+  // unified rAF-throttled scroll handling (scroll cue + hero parallax) — one read + write per frame
   var cue = document.querySelector('.scroll-cue');
-  if (cue) {
-    var hideCue = function(){
-      var gone = window.scrollY > 40;
+  var pw = document.querySelector('.wordmark'),
+      pe = document.querySelector('.hero .eyebrow'),
+      pt = document.querySelector('.hero-tag');
+  var paraOn = false, ticking = false;
+  function renderScroll(){
+    ticking = false;
+    var y = window.pageYOffset || window.scrollY || 0;
+    if (cue){
+      var gone = y > 40;
       cue.style.opacity = gone ? '0' : '';
       cue.style.pointerEvents = gone ? 'none' : '';
-    };
-    window.addEventListener('scroll', hideCue, { passive: true });
-    hideCue();
+    }
+    if (paraOn && y <= window.innerHeight){
+      if (pw) pw.style.transform = 'translate3d(0,' + (y*0.10) + 'px,0)';
+      if (pe) pe.style.transform = 'translate3d(0,' + (y*0.18) + 'px,0)';
+      if (pt) pt.style.transform = 'translate3d(0,' + (y*0.05) + 'px,0)';
+    }
   }
+  function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(renderScroll); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  renderScroll();
 
   var glow = document.querySelector('.cursor-glow');
   if (glow && !reduce && window.matchMedia('(hover: hover)').matches) {
@@ -676,22 +690,14 @@
       el.addEventListener('pointerleave', function(){ el.style.transform = ''; });
     });
 
-    var pw = document.querySelector('.wordmark'),
-        pe = document.querySelector('.hero .eyebrow'),
-        pt = document.querySelector('.hero-tag');
-    var onPara = function(){
-      var y = window.scrollY;
-      if (y <= window.innerHeight) {
-        if (pw) pw.style.transform = 'translateY(' + (y*0.10) + 'px)';
-        if (pe) pe.style.transform = 'translateY(' + (y*0.18) + 'px)';
-        if (pt) pt.style.transform = 'translateY(' + (y*0.05) + 'px)';
-      }
-    };
+    // hero parallax: GPU-promote the layers, enable after the intro animation settles
+    [pw, pe, pt].forEach(function(el){ if (el) el.style.willChange = 'transform'; });
     window.addEventListener('load', function(){
       setTimeout(function(){
         if (pe) pe.style.transition = 'none';
         if (pt) pt.style.transition = 'none';
-        window.addEventListener('scroll', onPara, { passive: true });
+        paraOn = true;
+        onScroll();
       }, 1400);
     });
   }
