@@ -6,10 +6,16 @@
   If you're reading this, you're my kind of person.
   Let's build something.   cole@mondorgroup.com
 -->
+<!--
+  Mondor Group — built by hand. No site builder, no framework, no template.
+  One file: strict Content-Security-Policy, self-hosted variable fonts, reveal-on-scroll,
+  works offline (service worker), and fully readable with JavaScript disabled.
+  If you are reading the source, we would probably get along. → cole@mondorgroup.com
+-->
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-RrJfae0zLM7hGW+kfS4mTbLi9rGjxv4gUFLguocsd0Q=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-swVfzvKaQLTkbTfAh+fPGtctT/67bT1EXO709euYv7M=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategic advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -480,6 +486,7 @@
   "sameAs": ["https://www.linkedin.com/in/-cole-mondor/"]
 }
 </script>
+<noscript><style>.reveal,.h-el{opacity:1 !important;transform:none !important;}</style></noscript>
 </head>
 <body>
 
@@ -707,6 +714,11 @@
 
   console.log('%cMondor Group', 'font:500 20px Montserrat,system-ui,sans-serif;color:#e9e9ea;letter-spacing:.08em;');
   console.log('%cBuilt by hand. No site builder, no framework, no template.\nIf you have got the console open, you are exactly the kind of person I like working with.\n→ cole@mondorgroup.com', 'color:#8c8c93;font:14px/1.7 Georgia,serif;');
+
+  // offline-capable PWA: register the service worker (progressive enhancement — site works fine without it)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); });
+  }
 </script>
 <!-- Cloudflare Web Analytics (cookieless) -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e5b90d0a46604be28b9b8e1d89f0bd98"}'></script>
