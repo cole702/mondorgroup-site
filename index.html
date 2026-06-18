@@ -15,16 +15,18 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-swVfzvKaQLTkbTfAh+fPGtctT/67bT1EXO709euYv7M=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-mdR0hAiuMGRdm+4S/DbYsSPgQdUmmWwArxR8OCpasUw=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategic advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
 <link rel="canonical" href="https://mondorgroup.com/" />
 <meta name="theme-color" content="#070708" />
+<meta name="color-scheme" content="dark" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="manifest" href="/site.webmanifest" />
+<link type="text/plain" rel="author" href="/humans.txt" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Mondor Group" />
 <meta property="og:url" content="https://mondorgroup.com/" />
@@ -729,6 +731,7 @@
 
   console.log('%cMondor Group', 'font:500 20px Montserrat,system-ui,sans-serif;color:#e9e9ea;letter-spacing:.08em;');
   console.log('%cBuilt by hand. No site builder, no framework, no template.\nIf you have got the console open, you are exactly the kind of person I like working with.\n→ cole@mondorgroup.com', 'color:#8c8c93;font:14px/1.7 Georgia,serif;');
+  console.log('%cStack: vanilla HTML/CSS/JS, no framework · strict CSP · self-hosted variable fonts · offline PWA · ~100 Lighthouse.\nThe whole site is one hand-written file — you are reading it.', 'color:#6f6f77;font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;');
 
   // offline-capable PWA: register the service worker (progressive enhancement — site works fine without it)
   if ('serviceWorker' in navigator) {
