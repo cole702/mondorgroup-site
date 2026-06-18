@@ -9,7 +9,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-JsrqWL5aeFyecW7+GiXbxIuxqXX4K+oohU2uNpWD/Tw=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-28m8y6T36hOUBXJDLZ6+hnKbkgRq3hmC8dGMwFqDK3I=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategy advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -208,48 +208,62 @@
   }
   .lead-detail + .lead-detail{margin-top:1.15rem;}
 
+  .signature{
+    margin-top:2.5rem;
+    font-family:var(--display);
+    font-weight:400;
+    font-size:.78rem;
+    letter-spacing:.24em;
+    text-indent:.24em;
+    text-transform:uppercase;
+    color:var(--silver);
+  }
+
   #work .wrap{text-align:center;}
 
   /* ---------- capabilities ---------- */
   .cap-head{
     margin-bottom:2.8rem;
     display:flex;
-    align-items:baseline;
-    gap:1rem;
+    align-items:center;
+    gap:1.2rem;
   }
-  .cap-head .eyebrow{color:var(--muted);}
+  .cap-head .eyebrow{color:var(--muted);font-size:.8rem;text-indent:.32em;}
   .cap-head .hr{flex:1;height:1px;background:var(--line-soft);}
 
   .cap-row{
-    display:grid;
-    grid-template-columns:13rem 1fr;
-    gap:1.4rem 2.5rem;
-    padding:1.7rem 0;
+    padding:1.85rem 0;
     border-top:1px solid var(--line-soft);
-    align-items:baseline;
-    transition:transform .4s cubic-bezier(.2,.6,.2,1), background .4s ease;
+    text-align:center;
+    transition:background .4s ease;
   }
   .cap-row:last-child{border-bottom:1px solid var(--line-soft);}
-  .cap-row.active{transform:translateX(10px);background:linear-gradient(90deg,rgba(255,255,255,.04),transparent 55%);}
+  .cap-row.active{background:radial-gradient(ellipse 70% 130% at 50% 50%,rgba(255,255,255,.04),transparent 72%);}
+  .cap-row.active .cap-term{color:#fff;}
   .cap-row.active .cap-desc{color:var(--silver);}
   @media (hover:hover){
-    .cap-row:hover{transform:translateX(10px);background:linear-gradient(90deg,rgba(255,255,255,.035),transparent 55%);}
+    .cap-row:hover{background:radial-gradient(ellipse 70% 130% at 50% 50%,rgba(255,255,255,.035),transparent 72%);}
+    .cap-row:hover .cap-term{color:#fff;}
     .cap-row:hover .cap-desc{color:var(--silver);}
   }
   .cap-term{
     font-family:var(--display);
     font-weight:400;
     font-size:.82rem;
-    letter-spacing:.16em;
+    letter-spacing:.18em;
+    text-indent:.18em;
     text-transform:uppercase;
     color:var(--silver-bright);
     line-height:1.5;
+    transition:color .35s ease;
   }
   .cap-desc{
-    font-size:1.04rem;
+    margin:.7rem auto 0;
+    max-width:34rem;
+    font-size:1.05rem;
     font-weight:300;
     color:var(--muted);
-    line-height:1.55;
+    line-height:1.6;
     transition:color .35s ease;
   }
 
@@ -354,8 +368,7 @@
 
   /* ---------- responsive ---------- */
   @media (max-width:640px){
-    .cap-row{grid-template-columns:1fr;gap:.5rem;padding:1.4rem 0;}
-    .cap-desc{color:var(--muted);}
+    .cap-row{padding:1.5rem 0;}
     .hero{padding-top:5rem;}
   }
 
@@ -439,14 +452,16 @@
       <div class="wrap">
         <h2 class="sr-only">About Mondor Group</h2>
         <p class="lead reveal">I'm an operator who builds the systems a business actually runs on.</p>
-        <p class="lead-detail reveal">Twelve-plus years inside real operations, including owning an independent pharmacy. Now I help growing businesses scale without straining under their own weight.</p>
+        <p class="lead-detail reveal">Fifteen years inside real operations, from owning an independent pharmacy to overseeing multi-site operations at an organizational level. Now I help growing businesses scale without straining under their own weight.</p>
         <p class="lead-detail reveal">That's the unglamorous side of growth: pro formas and projections, process and systems design, the operational backbone a business runs on as it scales. Whatever the industry, building that backbone is the work.</p>
+        <p class="signature reveal">Cole Mondor</p>
       </div>
     </section>
 
     <section id="capabilities">
       <div class="wrap">
         <div class="cap-head reveal">
+          <span class="hr"></span>
           <h2 class="eyebrow">Scope</h2>
           <span class="hr"></span>
         </div>
@@ -506,8 +521,10 @@
   </footer>
 
 <script>
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.scrollTo(0, 0);
   document.getElementById('yr').textContent = new Date().getFullYear();
-  window.addEventListener('load', function(){ document.body.classList.add('loaded'); });
+  window.addEventListener('load', function(){ document.body.classList.add('loaded'); window.scrollTo(0, 0); });
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var els = document.querySelectorAll('.reveal');
