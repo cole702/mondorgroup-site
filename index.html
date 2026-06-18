@@ -78,6 +78,21 @@
     overflow-x:hidden;
   }
 
+  /* text selection — subtle brand-slate tint instead of default blue */
+  ::selection{background:rgba(126,138,166,.32);color:#f4f4f5;}
+  ::-moz-selection{background:rgba(126,138,166,.32);color:#f4f4f5;}
+
+  /* thin themed scrollbar (desktop) */
+  html{scrollbar-width:thin;scrollbar-color:#2b2b32 transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:#2b2b32;border-radius:8px;border:2px solid var(--ink);}
+  ::-webkit-scrollbar-thumb:hover{background:#3a3a46;}
+
+  /* balanced headlines, orphan-free paragraphs */
+  .lead,.hero-tag,.prompt,.cap-desc,.step-desc,.trust-line,.who{text-wrap:balance;}
+  .lead-detail{text-wrap:pretty;}
+
   .wrap{max-width:var(--measure);margin:0 auto;padding:0 1.6rem;}
 
   a{color:inherit;}
