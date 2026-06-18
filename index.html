@@ -208,8 +208,21 @@
   }
   .lead-detail + .lead-detail{margin-top:1.15rem;}
 
+  .byline{
+    margin-top:2.9rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+  }
+  .headshot{
+    width:92px;
+    height:92px;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid var(--line);
+  }
   .signature{
-    margin-top:2.5rem;
     font-family:var(--display);
     font-weight:400;
     font-size:.78rem;
@@ -492,7 +505,10 @@
         <p class="lead reveal">I'm an operator who builds the systems a business actually runs on.</p>
         <p class="lead-detail reveal">Fifteen years inside real operations, from owning an independent pharmacy to overseeing multi-site operations at an organizational level. Now I help growing businesses scale without straining under their own weight.</p>
         <p class="lead-detail reveal">That's the unglamorous side of growth: pro formas and projections, process and systems design, the operational backbone a business runs on as it scales. Whatever the industry, building that backbone is the work.</p>
-        <p class="signature reveal">Cole Mondor</p>
+        <div class="byline reveal">
+          <img class="headshot" src="/cole.jpg" width="92" height="92" alt="Cole Mondor" loading="lazy" />
+          <p class="signature">Cole Mondor</p>
+        </div>
       </div>
     </section>
 
