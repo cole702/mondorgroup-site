@@ -34,6 +34,8 @@
 <meta name="twitter:image" content="https://mondorgroup.com/og-image.png" />
 <link rel="preload" href="fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="fonts/spectral-300.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin />
+<link rel="dns-prefetch" href="https://cloudflareinsights.com" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23070708'/%3E%3Ctext x='32' y='30' font-family='Helvetica,Arial,sans-serif' font-size='22' font-weight='300' letter-spacing='1' fill='%23d6d6d6' text-anchor='middle'%3EM%3C/text%3E%3Cline x1='20' y1='34' x2='44' y2='34' stroke='%23d6d6d6' stroke-width='1'/%3E%3Ctext x='32' y='52' font-family='Helvetica,Arial,sans-serif' font-size='22' font-weight='300' letter-spacing='1' fill='%23d6d6d6' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E" />
 <style>
   /* self-hosted fonts (latin subset): no third-party requests */
@@ -48,7 +50,7 @@
     --silver:#d4d4d6;
     --silver-bright:#f1f1f2;
     --muted:#8c8c93;
-    --muted-dim:#7c7c84;
+    --muted-dim:#86868d;
     --line:rgba(255,255,255,0.12);
     --line-soft:rgba(255,255,255,0.07);
     --display:"Montserrat",-apple-system,BlinkMacSystemFont,sans-serif;
@@ -326,7 +328,7 @@
     letter-spacing:.06em;
     text-decoration:none;
     color:var(--silver-bright);
-    padding:.5rem .5rem .4rem;
+    padding:.65rem .5rem .55rem;
     border-bottom:1px solid var(--line);
     transition:border-color .35s ease, color .35s ease, transform .3s cubic-bezier(.2,.6,.2,1);
   }
@@ -341,11 +343,12 @@
     color:var(--muted-dim);
   }
   .secondary-link a{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
     text-decoration:none;
     border-bottom:1px solid transparent;
     transition:color .3s ease,border-color .3s ease,transform .3s cubic-bezier(.2,.6,.2,1);
-    padding:.35rem .35rem;
+    padding:.75rem .55rem;
   }
   .secondary-link a:hover{color:var(--silver);border-color:var(--line);}
 
@@ -507,7 +510,7 @@
         <p class="lead-detail reveal">Fifteen years inside real operations, from owning an independent pharmacy to overseeing multi-site operations at an organizational level. Now I help growing businesses scale without straining under their own weight.</p>
         <p class="lead-detail reveal">That's the unglamorous side of growth: pro formas and projections, process and systems design, the operational backbone a business runs on as it scales. Whatever the industry, building that backbone is the work.</p>
         <div class="byline reveal">
-          <img class="headshot" src="/cole.jpg" width="92" height="92" alt="Cole Mondor" loading="lazy" />
+          <img class="headshot" src="/cole.jpg" width="92" height="92" alt="Cole Mondor" loading="lazy" decoding="async" />
           <p class="signature">Cole Mondor</p>
         </div>
       </div>
