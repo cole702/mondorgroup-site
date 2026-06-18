@@ -259,10 +259,19 @@
     .cap-row:hover .cap-term{color:#fff;}
     .cap-row:hover .cap-desc{color:var(--silver);}
   }
+  .cap-no{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:.7rem;
+    letter-spacing:.24em;
+    text-indent:.24em;
+    color:var(--muted-dim);
+    margin-bottom:.6rem;
+  }
   .cap-term{
     font-family:var(--display);
     font-weight:400;
-    font-size:.82rem;
+    font-size:clamp(.84rem,1.9vw,1rem);
     letter-spacing:.18em;
     text-indent:.18em;
     text-transform:uppercase;
@@ -273,12 +282,22 @@
   .cap-desc{
     margin:.7rem auto 0;
     max-width:34rem;
-    font-size:1.05rem;
+    font-size:clamp(1rem,2vw,1.13rem);
     font-weight:300;
     color:var(--muted);
     line-height:1.6;
     transition:color .35s ease;
   }
+
+  /* ---------- how I work ---------- */
+  #approach{text-align:center;}
+  #approach .cap-head{margin-bottom:2.6rem;}
+  .steps{border-bottom:1px solid var(--line-soft);}
+  .step{padding:1.85rem 0;border-top:1px solid var(--line-soft);}
+  .step-no{font-family:var(--display);font-weight:400;font-size:.7rem;letter-spacing:.24em;text-indent:.24em;color:var(--muted-dim);}
+  .step-title{margin-top:.55rem;font-family:var(--display);font-weight:400;font-size:clamp(.84rem,1.9vw,1rem);letter-spacing:.18em;text-indent:.18em;text-transform:uppercase;color:var(--silver-bright);}
+  .step-desc{margin:.65rem auto 0;max-width:34rem;font-size:clamp(1rem,2vw,1.13rem);font-weight:300;color:var(--muted);line-height:1.6;}
+  .formats{margin-top:2.5rem;font-family:var(--display);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-dim);}
 
   /* ---------- contact ---------- */
   .contact{text-align:center;}
@@ -441,7 +460,7 @@
     .reveal,.h-el{opacity:1 !important;transform:none !important;}
     .wm-top{-webkit-text-fill-color:#1a1a1a !important;color:#1a1a1a !important;background:none !important;}
     .wm-rule{background:#1a1a1a !important;}
-    .eyebrow,.wm-bot,.hero-tag,.lead,.lead-detail,.signature,.who,.cap-term,.cap-desc,.prompt,.mail-link,.trust-line,.foot-meta,.powered{color:#1a1a1a !important;}
+    .eyebrow,.wm-bot,.hero-tag,.lead,.lead-detail,.signature,.who,.cap-no,.cap-term,.cap-desc,.step-no,.step-title,.step-desc,.formats,.prompt,.mail-link,.trust-line,.foot-meta,.powered{color:#1a1a1a !important;}
     .cta-book{background:none !important;color:#1a1a1a !important;border:1px solid #1a1a1a !important;box-shadow:none !important;}
     a{color:#1a1a1a !important;}
     .cap-head .hr,.cap-row{border-color:#ccc !important;}
@@ -521,29 +540,63 @@
         </div>
 
         <div class="cap-row reveal">
+          <div class="cap-no">01</div>
           <div class="cap-term">Operations &amp; strategy</div>
-          <div class="cap-desc">Untangling how an operation actually runs, and rebuilding it to scale cleanly.</div>
+          <div class="cap-desc">Untangle how the business actually runs, then rebuild it to scale without everything routing through you.</div>
         </div>
         <div class="cap-row reveal">
+          <div class="cap-no">02</div>
           <div class="cap-term">Modeling &amp; forecasting</div>
-          <div class="cap-desc">Pro formas, projections, and a clear-eyed look at the numbers behind a decision.</div>
+          <div class="cap-desc">Pro formas and projections that turn a gut call into a clear-eyed decision.</div>
         </div>
         <div class="cap-row reveal">
+          <div class="cap-no">03</div>
           <div class="cap-term">Systems &amp; process</div>
           <div class="cap-desc">The connective layer between people, tools, and numbers, so the business runs without you holding it together.</div>
         </div>
         <div class="cap-row reveal">
+          <div class="cap-no">04</div>
           <div class="cap-term">Technology &amp; automation</div>
-          <div class="cap-desc">Hands-on, not hand-off. Where many advisors stop at strategy, I build the systems too, with real working depth in current technology and AI.</div>
+          <div class="cap-desc">I build the systems too, not just the strategy, with real working depth in current tech and AI.</div>
         </div>
         <div class="cap-row reveal">
+          <div class="cap-no">05</div>
           <div class="cap-term">Privacy &amp; data protection</div>
-          <div class="cap-desc">A career spent around sensitive data. When technology touches it, compliance is built in from the start, not bolted on later.</div>
+          <div class="cap-desc">Compliance built in from the start, not bolted on, by someone who's spent a career around sensitive data.</div>
         </div>
         <div class="cap-row reveal">
+          <div class="cap-no">06</div>
           <div class="cap-term">And more</div>
           <div class="cap-desc">Few problems fit neatly in one box. If what you need isn't listed, ask. Chances are it still fits.</div>
         </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="wrap">
+        <div class="cap-head reveal">
+          <span class="hr"></span>
+          <h2 class="eyebrow">How I work</h2>
+          <span class="hr"></span>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-no">01</div>
+            <div class="step-title">Intro call</div>
+            <div class="step-desc">A 30-minute conversation about where the business is straining and whether I can help. No pitch.</div>
+          </div>
+          <div class="step reveal">
+            <div class="step-no">02</div>
+            <div class="step-title">Diagnostic</div>
+            <div class="step-desc">I map how the operation actually runs and where it breaks, then come back with a clear picture and a plan.</div>
+          </div>
+          <div class="step reveal">
+            <div class="step-no">03</div>
+            <div class="step-title">Build</div>
+            <div class="step-desc">Then I build it: the models, systems, and processes, working alongside your team until it holds.</div>
+          </div>
+        </div>
+        <p class="formats reveal">Advisory sprint &nbsp;·&nbsp; Fractional operations &nbsp;·&nbsp; Project build</p>
       </div>
     </section>
 
