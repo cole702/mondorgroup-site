@@ -214,6 +214,7 @@
     text-decoration:none;
   }
   .scroll-cue span{display:block;margin:0 auto .5rem;width:1px;height:2.4rem;background:linear-gradient(180deg,var(--line) 0%,transparent 100%);animation:cue-bob 2.1s ease-in-out infinite;}
+  .scroll-cue .chev{display:block;width:.5rem;height:.5rem;margin:.05rem auto 0;border-right:1px solid var(--muted);border-bottom:1px solid var(--muted);transform:rotate(45deg);}
   @keyframes cue-bob{0%,100%{transform:translateY(0);opacity:.4;}50%{transform:translateY(6px);opacity:1;}}
 
   /* ---------- generic section ---------- */
@@ -539,7 +540,7 @@
 
     <p class="hero-tag h-el h-3">The operations, technology, and strategy behind a business built to grow.</p>
 
-    <a class="scroll-cue h-el h-cue" href="#work" aria-label="Scroll to content"><span></span>Scroll</a>
+    <a class="scroll-cue h-el h-cue" href="#work" aria-label="Scroll to content"><span></span><i class="chev" aria-hidden="true"></i></a>
   </header>
 
   <main id="main">
