@@ -15,7 +15,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-D4GwvF+Xx67L4en55pf5Xq0+GtXQUc8fFWHXyOEH3w4=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-DztuMjSSyC3TcTmgkeYrpOJ0V2UFR5Ue7VhMQdUCUHE=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategic advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -653,6 +653,12 @@
   if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
   window.scrollTo(0, 0);
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // a quiet nod when you switch away, restored when you come back
+  var pageTitle = document.title;
+  document.addEventListener('visibilitychange', function(){
+    document.title = document.hidden ? '↩  Mondor Group' : pageTitle;
+  });
   window.addEventListener('load', function(){ document.body.classList.add('loaded'); window.scrollTo(0, 0); });
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
