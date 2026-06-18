@@ -9,7 +9,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-28m8y6T36hOUBXJDLZ6+hnKbkgRq3hmC8dGMwFqDK3I=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-DTqMaIpfYc53BaK4CxuqxlhpEM2+3FNTEe0JqXa5XbM=' 'sha256-tjzUKfRACWQ+XEcSpjAKzW0MsgyQDWtiPvp+MinVjWs=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategy advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -204,7 +204,7 @@
     font-size:clamp(1.04rem,2.2vw,1.2rem);
     font-weight:300;
     line-height:1.6;
-    color:var(--muted);
+    color:#b6b6be;
   }
   .lead-detail + .lead-detail{margin-top:1.15rem;}
 
@@ -275,13 +275,40 @@
     color:var(--silver-bright);
     line-height:1.45;
     max-width:34rem;
-    margin:0 auto 2.6rem;
+    margin:0 auto 1.3rem;
   }
+  .who{
+    max-width:32rem;
+    margin:0 auto 2.6rem;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.02rem;
+    font-weight:300;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  .cta-book{
+    display:inline-block;
+    font-family:var(--display);
+    font-weight:500;
+    font-size:.82rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--silver-bright);
+    padding:1rem 2.1rem;
+    border-radius:2px;
+    transition:transform .3s cubic-bezier(.2,.6,.2,1), box-shadow .3s ease, background .3s ease;
+  }
+  .cta-book:hover{background:#fff;transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.5);}
+  .cta-book:focus-visible{outline:2px solid var(--silver);outline-offset:4px;}
+  .contact-alt{margin-top:2.1rem;}
   .mail-link{
     display:inline-block;
     font-family:var(--display);
     font-weight:400;
-    font-size:clamp(1.05rem,2.6vw,1.4rem);
+    font-size:clamp(1rem,2.2vw,1.12rem);
     letter-spacing:.06em;
     text-decoration:none;
     color:var(--silver-bright);
@@ -308,9 +335,19 @@
   }
   .secondary-link a:hover{color:var(--silver);border-color:var(--line);}
 
+  .trust-line{
+    max-width:34rem;
+    margin:2.6rem auto 0;
+    font-family:var(--serif);
+    font-size:.9rem;
+    font-weight:300;
+    color:var(--muted-dim);
+    line-height:1.65;
+  }
+
   /* gentle attention pulse when the contact section is reached */
   @keyframes contact-pulse{0%,100%{scale:1;}50%{scale:1.055;}}
-  .mail-link.pulse, .secondary-link a.pulse{animation:contact-pulse 1.25s ease-in-out 2;}
+  .cta-book.pulse{animation:contact-pulse 1.25s ease-in-out 2;}
 
   /* inline icons — inherit the link's color + hover */
   .ic{width:1em;height:1em;display:inline-block;vertical-align:-.14em;margin-right:.55em;}
@@ -381,7 +418,7 @@
     .cursor-glow{display:none;}
     .cap-row:hover{transform:none;}
     .cap-row.active{transform:none;}
-    .mail-link.pulse,.secondary-link a.pulse{animation:none;}
+    .cta-book.pulse{animation:none;}
   }
 
   /* ---------- print / PDF ---------- */
@@ -391,7 +428,8 @@
     .reveal,.h-el{opacity:1 !important;transform:none !important;}
     .wm-top{-webkit-text-fill-color:#1a1a1a !important;color:#1a1a1a !important;background:none !important;}
     .wm-rule{background:#1a1a1a !important;}
-    .eyebrow,.wm-bot,.hero-tag,.lead,.lead .soft,.body-copy,.cap-term,.cap-desc,.prompt,.mail-link,.foot-meta,.powered{color:#1a1a1a !important;}
+    .eyebrow,.wm-bot,.hero-tag,.lead,.lead-detail,.signature,.who,.cap-term,.cap-desc,.prompt,.mail-link,.trust-line,.foot-meta,.powered{color:#1a1a1a !important;}
+    .cta-book{background:none !important;color:#1a1a1a !important;border:1px solid #1a1a1a !important;box-shadow:none !important;}
     a{color:#1a1a1a !important;}
     .cap-head .hr,.cap-row{border-color:#ccc !important;}
     .hero{min-height:auto !important;padding:1rem 0 2rem !important;}
@@ -497,8 +535,11 @@
       <div class="wrap">
         <h2 class="sr-only">Contact</h2>
         <p class="prompt reveal">Building something you want to scale? Let's make sure the foundation can carry it.</p>
-        <p class="reveal"><a class="mail-link" href="mailto:cole@mondorgroup.com"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>cole@mondorgroup.com</a></p>
+        <p class="who reveal">Owner-led and multi-site businesses, past scrappy but not yet built to run without you.</p>
+        <p class="reveal"><a class="cta-book" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0NSqhsRXi2_Id0KzNa_4UiQxmckdIfAJkkl1W36SoKf5mppAHuop0n0knmvZizV0wxct3SVZ1i" target="_blank" rel="noopener">Book a 30-minute intro</a></p>
+        <p class="contact-alt reveal"><a class="mail-link" href="mailto:cole@mondorgroup.com?subject=Mondor%20Group%20intro"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>cole@mondorgroup.com</a></p>
         <p class="secondary-link reveal"><a href="https://www.linkedin.com/in/-cole-mondor/" target="_blank" rel="noopener"><svg class="ic ic-li" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>Connect on LinkedIn</a></p>
+        <p class="trust-line reveal">No pitch, no obligation, always confidential. I reply within one business day, and take only a few engagements at a time.</p>
       </div>
     </section>
 
@@ -552,7 +593,7 @@
       var cObs = new IntersectionObserver(function(entries){
         entries.forEach(function(e){
           if (e.isIntersecting) {
-            document.querySelectorAll('.mail-link, .secondary-link a').forEach(function(el){ el.classList.add('pulse'); });
+            document.querySelectorAll('.cta-book').forEach(function(el){ el.classList.add('pulse'); });
             cObs.disconnect();
           }
         });
