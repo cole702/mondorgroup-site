@@ -15,7 +15,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-mdR0hAiuMGRdm+4S/DbYsSPgQdUmmWwArxR8OCpasUw=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-D4GwvF+Xx67L4en55pf5Xq0+GtXQUc8fFWHXyOEH3w4=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategic advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -482,7 +482,8 @@
   .cursor-glow{background:radial-gradient(440px circle at var(--mx,50%) var(--my,50%), rgba(16,52,24,.35), rgba(16,52,24,0) 70%);}
   .wm-rule{background:linear-gradient(90deg,rgba(16,52,24,0) 0%,rgba(16,52,24,.95) 18%,rgba(16,52,24,.95) 82%,rgba(16,52,24,0) 100%);}
   .scroll-cue span{background:linear-gradient(180deg,rgba(16,52,24,.9) 0%,transparent 100%);}
-  .step-no{color:#348748;}
+  .step-no{transition:color .55s ease;}
+  .step.active .step-no{color:#348748;}
   .cap-row.active .cap-term{color:#3f9553;}
   .mail-link:hover{color:#3f9553;border-color:rgba(16,52,24,.8);}
   .secondary-link a:hover{color:#3f9553;border-color:rgba(16,52,24,.7);}
@@ -671,7 +672,7 @@
     var rowObs = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ e.target.classList.toggle('active', e.isIntersecting); });
     }, { rootMargin: '-45% 0px -45% 0px' });
-    document.querySelectorAll('.cap-row').forEach(function(r){ rowObs.observe(r); });
+    document.querySelectorAll('.cap-row, .step').forEach(function(r){ rowObs.observe(r); });
 
     // pulse the contact links once they come into view
     var contact = document.getElementById('contact');
