@@ -178,6 +178,7 @@
     background:linear-gradient(90deg,rgba(212,212,214,0) 0%,rgba(212,212,214,.85) 18%,rgba(212,212,214,.85) 82%,rgba(212,212,214,0) 100%);
     margin:clamp(.7rem,2vw,1.15rem) 0;
     transform-origin:center;
+    transform:scaleX(0);
   }
   .wm-bot{
     display:block;
@@ -452,7 +453,7 @@
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
     .reveal,.h-el{opacity:1;transform:none;transition:none;}
-    .wm-rule{animation:none;}
+    .wm-rule{animation:none;transform:none;}
     .wm-top{animation:none;}
     .scroll-cue span{animation:none;}
     .cursor-glow{display:none;}
@@ -503,7 +504,7 @@
   "sameAs": ["https://www.linkedin.com/in/-cole-mondor/"]
 }
 </script>
-<noscript><style>.reveal,.h-el{opacity:1 !important;transform:none !important;}</style></noscript>
+<noscript><style>.reveal,.h-el{opacity:1 !important;transform:none !important;}.wm-rule{transform:none !important;}</style></noscript>
 </head>
 <body>
 
