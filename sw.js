@@ -1,6 +1,6 @@
 /* Mondor Group — minimal service worker.
    HTML: network-first (content always fresh). Static assets: cache-first (instant repeat loads, offline). */
-const CACHE = 'mg-v2';
+const CACHE = 'mg-v3';
 const PRECACHE = [
   '/', '/index.html', '/cole.jpg', '/og-image.png', '/site.webmanifest',
   '/favicon.ico', '/favicon-32.png', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png',
