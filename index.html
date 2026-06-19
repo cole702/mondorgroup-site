@@ -1,15 +1,8 @@
 <!DOCTYPE html>
-<!--
-  Mondor Group
-  ----------------------------------------------------------
-  Built by hand. No site builder, no framework, no template.
-  If you're reading this, you're my kind of person.
-  Let's build something.   cole@mondorgroup.com
--->
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SY3voRhuCnt49qAAdmERvyJkDEE8ney2j71lV+kQ4J4=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-rDkn2rhLeNVxNONQKQRmj2yOnZnGU5BP5IuEPzG9lDc=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategic advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -40,7 +33,7 @@
 <link rel="dns-prefetch" href="https://cloudflareinsights.com" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23070708'/%3E%3Ctext x='32' y='30' font-family='Helvetica,Arial,sans-serif' font-size='22' font-weight='300' letter-spacing='1' fill='%23d6d6d6' text-anchor='middle'%3EM%3C/text%3E%3Cline x1='20' y1='34' x2='44' y2='34' stroke='%23d6d6d6' stroke-width='1'/%3E%3Ctext x='32' y='52' font-family='Helvetica,Arial,sans-serif' font-size='22' font-weight='300' letter-spacing='1' fill='%23d6d6d6' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E" />
 <style>
-  /* self-hosted fonts (latin subset): no third-party requests */
+  /* self-hosted fonts */
   @font-face{font-family:'Montserrat';font-style:normal;font-weight:300 500;font-display:swap;src:url('fonts/montserrat.woff2') format('woff2');}
   @font-face{font-family:'Spectral';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/spectral-300.woff2') format('woff2');}
   @font-face{font-family:'Spectral';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/spectral-400.woff2') format('woff2');}
@@ -74,7 +67,7 @@
     overflow-x:hidden;
   }
 
-  /* text selection — subtle brand-slate tint instead of default blue */
+  /* text selection */
   ::selection{background:rgba(126,138,166,.32);color:#f4f4f5;}
   ::-moz-selection{background:rgba(126,138,166,.32);color:#f4f4f5;}
 
@@ -85,7 +78,7 @@
   ::-webkit-scrollbar-thumb{background:#2b2b32;border-radius:8px;border:2px solid var(--ink);}
   ::-webkit-scrollbar-thumb:hover{background:#3a3a46;}
 
-  /* balanced headlines, orphan-free paragraphs */
+  /* text wrapping */
   .lead,.hero-tag,.prompt,.cap-desc,.step-desc,.trust-line,.who{text-wrap:balance;}
   .lead-detail{text-wrap:pretty;}
 
@@ -98,7 +91,7 @@
   .skip-link{position:absolute;left:.5rem;top:-3.5rem;z-index:200;font-family:var(--display);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--silver-bright);background:var(--ink-2);border:1px solid var(--line);border-radius:2px;padding:.6rem .9rem;transition:top .2s ease;}
   .skip-link:focus{top:.5rem;}
 
-  /* fixed ambient gradient backdrop — composited layer instead of background-attachment:fixed (avoids per-frame repaint / scroll jank) */
+  /* fixed gradient backdrop */
   body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse 90% 70% at 50% 34%, #16161b 0%, #0a0a0c 52%, #050506 100%);}
 
   /* film grain overlay */
@@ -339,31 +332,30 @@
     display:inline-block;
     font-family:var(--display);
     font-weight:400;
-    font-size:clamp(1rem,2.2vw,1.12rem);
-    letter-spacing:.06em;
+    font-size:.9rem;
+    letter-spacing:.04em;
     text-decoration:none;
-    color:var(--silver-bright);
-    padding:.65rem .5rem .55rem;
-    border-bottom:1px solid var(--line);
-    transition:border-color .35s ease, color .35s ease, transform .3s cubic-bezier(.2,.6,.2,1);
+    color:var(--muted);
+    padding:.6rem .5rem .5rem;
+    border-bottom:1px solid transparent;
+    transition:border-color .35s ease, color .35s ease;
   }
   .mail-link:hover{color:#fff;border-color:var(--silver);}
 
   .secondary-link{
-    margin-top:2rem;
+    margin-top:1.1rem;
     font-family:var(--display);
-    font-size:.72rem;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--muted-dim);
+    font-size:.9rem;
+    letter-spacing:.04em;
+    color:var(--muted);
   }
   .secondary-link a{
     display:inline-flex;
     align-items:center;
     text-decoration:none;
     border-bottom:1px solid transparent;
-    transition:color .3s ease,border-color .3s ease,transform .3s cubic-bezier(.2,.6,.2,1);
-    padding:.75rem .55rem;
+    transition:color .3s ease,border-color .3s ease;
+    padding:.6rem .5rem .5rem;
   }
   .secondary-link a:hover{color:var(--silver);border-color:var(--line);}
 
@@ -377,11 +369,11 @@
     line-height:1.65;
   }
 
-  /* gentle attention pulse when the contact section is reached */
+  /* contact pulse */
   @keyframes contact-pulse{0%,100%{scale:1;}50%{scale:1.055;}}
   .cta-book.pulse{animation:contact-pulse 1.25s ease-in-out 2;}
 
-  /* inline icons — inherit the link's color + hover */
+  /* inline icons */
   .ic{width:1em;height:1em;display:inline-block;vertical-align:-.14em;margin-right:.55em;}
   .ic-li{width:1.15em;height:1.15em;vertical-align:-.22em;margin-right:.5em;}
 
@@ -400,7 +392,7 @@
     color:var(--muted-dim);
     line-height:1.8;
   }
-  /* cheeky "powered by" badge — yes, he built it himself */
+  /* powered-by badge */
   .powered{
     margin-top:0;
     display:inline-flex;
@@ -655,13 +647,11 @@
   }
 
   if ('IntersectionObserver' in window) {
-    // scope rows light up as they cross the viewport center
     var rowObs = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ e.target.classList.toggle('active', e.isIntersecting); });
     }, { rootMargin: '-45% 0px -45% 0px' });
     document.querySelectorAll('.cap-row, .step').forEach(function(r){ rowObs.observe(r); });
 
-    // pulse the contact links once they come into view
     var contact = document.getElementById('contact');
     if (contact && !reduce) {
       var cObs = new IntersectionObserver(function(entries){
@@ -676,7 +666,6 @@
     }
   }
 
-  // unified rAF-throttled scroll handling (scroll cue + hero parallax) — one read + write per frame
   var cue = document.querySelector('.scroll-cue');
   var pw = document.querySelector('.wordmark'),
       pe = document.querySelector('.hero .eyebrow'),
@@ -701,18 +690,6 @@
   renderScroll();
 
   if (!reduce && window.matchMedia('(hover: hover)').matches) {
-    [['.mail-link', 0.35, 12], ['.secondary-link a', 0.4, 10]].forEach(function(p){
-      var el = document.querySelector(p[0]); if (!el) return;
-      el.addEventListener('pointermove', function(e){
-        var r = el.getBoundingClientRect(), cap = p[2];
-        var dx = Math.max(-cap, Math.min(cap, (e.clientX - (r.left + r.width/2)) * p[1]));
-        var dy = Math.max(-cap*0.6, Math.min(cap*0.6, (e.clientY - (r.top + r.height/2)) * 0.55));
-        el.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
-      });
-      el.addEventListener('pointerleave', function(){ el.style.transform = ''; });
-    });
-
-    // hero parallax: GPU-promote the layers, enable after the intro animation settles
     [pw, pe, pt].forEach(function(el){ if (el) el.style.willChange = 'transform'; });
     window.addEventListener('load', function(){
       setTimeout(function(){
@@ -724,11 +701,6 @@
     });
   }
 
-  console.log('%cMondor Group', 'font:500 20px Montserrat,system-ui,sans-serif;color:#e9e9ea;letter-spacing:.08em;');
-  console.log('%cBuilt by hand. No site builder, no framework, no template.\nIf you have got the console open, you are exactly the kind of person I like working with.\n→ cole@mondorgroup.com', 'color:#8c8c93;font:14px/1.7 Georgia,serif;');
-  console.log('%cStack: vanilla HTML/CSS/JS, no framework · strict CSP · self-hosted variable fonts · offline PWA · ~100 Lighthouse.\nThe whole site is one hand-written file — you are reading it.', 'color:#6f6f77;font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;');
-
-  // offline-capable PWA: register the service worker (progressive enhancement — site works fine without it)
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); });
   }
