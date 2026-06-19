@@ -9,7 +9,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-DztuMjSSyC3TcTmgkeYrpOJ0V2UFR5Ue7VhMQdUCUHE=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-SY3voRhuCnt49qAAdmERvyJkDEE8ney2j71lV+kQ4J4=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategic advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -104,10 +104,6 @@
   /* film grain overlay */
   body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 
-  /* ambient cursor glow (desktop, follows the pointer) */
-  .cursor-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .8s ease;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%), rgba(126,138,166,.09), rgba(126,138,166,0) 72%);}
-  body.has-cursor .cursor-glow{opacity:1;}
-  @media (hover:none){.cursor-glow{display:none;}}
 
   /* ---------- focus ---------- */
   a:focus-visible, button:focus-visible{
@@ -451,7 +447,6 @@
     .wm-rule{animation:none;transform:none;}
     .wm-top{animation:none;}
     .scroll-cue span{animation:none;}
-    .cursor-glow{display:none;}
     .cap-row:hover{transform:none;}
     .cap-row.active{transform:none;}
     .cta-book.pulse{animation:none;}
@@ -460,7 +455,7 @@
   /* ---------- print / PDF ---------- */
   @media print{
     body{background:#fff !important;color:#1a1a1a !important;}
-    body::before,body::after,.cursor-glow,.scroll-cue,.skip-link{display:none !important;}
+    body::before,body::after,.scroll-cue,.skip-link{display:none !important;}
     .reveal,.h-el{opacity:1 !important;transform:none !important;}
     .wm-top{-webkit-text-fill-color:#1a1a1a !important;color:#1a1a1a !important;background:none !important;}
     .wm-rule{background:#1a1a1a !important;}
@@ -474,7 +469,6 @@
   }
 
   /* ---------- signature accent · deep forest green ---------- */
-  .cursor-glow{background:radial-gradient(440px circle at var(--mx,50%) var(--my,50%), rgba(16,52,24,.35), rgba(16,52,24,0) 70%);}
   .wm-rule{background:linear-gradient(90deg,rgba(16,52,24,0) 0%,rgba(16,52,24,.95) 18%,rgba(16,52,24,.95) 82%,rgba(16,52,24,0) 100%);}
   .scroll-cue span{background:linear-gradient(180deg,rgba(16,52,24,.9) 0%,transparent 100%);}
   .step-no{transition:color .55s ease;}
@@ -518,8 +512,6 @@
 <noscript><style>.reveal,.h-el{opacity:1 !important;transform:none !important;}.wm-rule{transform:none !important;}</style></noscript>
 </head>
 <body>
-
-  <div class="cursor-glow" aria-hidden="true"></div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -647,12 +639,6 @@
   if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
   window.scrollTo(0, 0);
   document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // a quiet nod when you switch away, restored when you come back
-  var pageTitle = document.title;
-  document.addEventListener('visibilitychange', function(){
-    document.title = document.hidden ? '↩  Mondor Group' : pageTitle;
-  });
   window.addEventListener('load', function(){ document.body.classList.add('loaded'); window.scrollTo(0, 0); });
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -713,15 +699,6 @@
   function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(renderScroll); } }
   window.addEventListener('scroll', onScroll, { passive: true });
   renderScroll();
-
-  var glow = document.querySelector('.cursor-glow');
-  if (glow && !reduce && window.matchMedia('(hover: hover)').matches) {
-    window.addEventListener('pointermove', function(e){
-      glow.style.setProperty('--mx', e.clientX + 'px');
-      glow.style.setProperty('--my', e.clientY + 'px');
-      document.body.classList.add('has-cursor');
-    }, { passive: true });
-  }
 
   if (!reduce && window.matchMedia('(hover: hover)').matches) {
     [['.mail-link', 0.35, 12], ['.secondary-link a', 0.4, 10]].forEach(function(p){
