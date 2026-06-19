@@ -1,0 +1,12 @@
+/* TEAM */
+  Principal: Cole Mondor
+  Contact: cole [at] mondorgroup.com
+  Location: Edmonton, Alberta, Canada
+
+/* SITE */
+  Built by hand. No site builder, no framework, no template.
+  Standards: HTML5, CSS, vanilla JavaScript
+  Components: native scroll-driven animations, a variable typeface,
+              strict Content-Security-Policy, offline-capable PWA
+  Type: Montserrat (variable) and Spectral, self-hosted
+  Last updated: 2026-06

@@ -9,7 +9,7 @@
 <html lang="en-CA">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-rDkn2rhLeNVxNONQKQRmj2yOnZnGU5BP5IuEPzG9lDc=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-q3oT9+BheDHkCFM56wl8EW4r5IXQ5dasmqgj077cjjE=' 'sha256-f+qCp0mIrQeKK8vrt8V6+HZOxtQJMR0iAFkVFTvP+E4=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://cloudflareinsights.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mondor Group · Operations, technology &amp; strategic advisory</title>
 <meta name="description" content="Mondor Group is an independent advisory practice helping owner-run and growing businesses build the operations, technology, and strategy to scale. Edmonton, Alberta." />
@@ -19,7 +19,9 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-<link rel="manifest" href="/site.webmanifest" /><meta property="og:type" content="website" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="author" href="/humans.txt" />
+<link rel="me" href="https://www.linkedin.com/in/-cole-mondor/" /><meta property="og:type" content="website" />
 <meta property="og:site_name" content="Mondor Group" />
 <meta property="og:url" content="https://mondorgroup.com/" />
 <meta property="og:title" content="Mondor Group · Operations, technology &amp; strategic advisory" />
@@ -39,7 +41,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23070708'/%3E%3Ctext x='32' y='30' font-family='Helvetica,Arial,sans-serif' font-size='22' font-weight='300' letter-spacing='1' fill='%23d6d6d6' text-anchor='middle'%3EM%3C/text%3E%3Cline x1='20' y1='34' x2='44' y2='34' stroke='%23d6d6d6' stroke-width='1'/%3E%3Ctext x='32' y='52' font-family='Helvetica,Arial,sans-serif' font-size='22' font-weight='300' letter-spacing='1' fill='%23d6d6d6' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E" />
 <style>
   /* self-hosted fonts */
-  @font-face{font-family:'Montserrat';font-style:normal;font-weight:300 500;font-display:swap;src:url('fonts/montserrat.woff2') format('woff2');}
+  @font-face{font-family:'Montserrat';font-style:normal;font-weight:200 600;font-display:swap;src:url('fonts/montserrat.woff2') format('woff2');}
   @font-face{font-family:'Spectral';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/spectral-300.woff2') format('woff2');}
   @font-face{font-family:'Spectral';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/spectral-400.woff2') format('woff2');}
   @font-face{font-family:'Spectral';font-style:italic;font-weight:300;font-display:swap;src:url('fonts/spectral-300-italic.woff2') format('woff2');}
@@ -56,6 +58,8 @@
     --display:"Montserrat",-apple-system,BlinkMacSystemFont,sans-serif;
     --serif:"Spectral",Georgia,"Times New Roman",serif;
     --measure:42rem;
+    /* spring settle (~2.4% overshoot) for tactile motion */
+    --ease-spring:linear(0.0, 0.0791 4.2%, 0.2499 8.3%, 0.4428 12.5%, 0.6193 16.7%, 0.7625 20.8%, 0.8686 25.0%, 0.9408 29.2%, 0.9857 33.3%, 1.0104 37.5%, 1.0214 41.7%, 1.0239 45.8%, 1.0218 50.0%, 1.0176 54.2%, 1.013 58.3%, 1.0088 62.5%, 1.0055 66.7%, 1.003 70.8%, 1.0013 75.0%, 1.0003 79.2%, 0.9997 83.3%, 0.9995 87.5%, 0.9994 91.7%, 0.9995 95.8%, 1.0 100.0%);
   }
 
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -278,13 +282,14 @@
   .cap-term{
     font-family:var(--display);
     font-weight:400;
+    font-variation-settings:'wght' 400;
     font-size:clamp(.84rem,1.9vw,1rem);
     letter-spacing:.18em;
     text-indent:.18em;
     text-transform:uppercase;
     color:var(--silver-bright);
     line-height:1.5;
-    transition:color .35s ease;
+    transition:color .35s ease, font-variation-settings .5s cubic-bezier(.2,.6,.2,1);
   }
   .cap-desc{
     margin:.7rem auto 0;
@@ -302,7 +307,7 @@
   .steps{border-bottom:1px solid var(--line-soft);}
   .step{padding:1.85rem 0;border-top:1px solid var(--line-soft);}
   .step-no{font-family:var(--display);font-weight:400;font-size:.7rem;letter-spacing:.24em;text-indent:.24em;color:var(--muted-dim);}
-  .step-title{margin-top:.55rem;font-family:var(--display);font-weight:400;font-size:clamp(.84rem,1.9vw,1rem);letter-spacing:.18em;text-indent:.18em;text-transform:uppercase;color:var(--silver-bright);}
+  .step-title{margin-top:.55rem;font-family:var(--display);font-weight:400;font-variation-settings:'wght' 400;font-size:clamp(.84rem,1.9vw,1rem);letter-spacing:.18em;text-indent:.18em;text-transform:uppercase;color:var(--silver-bright);transition:color .35s ease, font-variation-settings .5s cubic-bezier(.2,.6,.2,1);}
   .step-desc{margin:.65rem auto 0;max-width:34rem;font-size:clamp(1rem,2vw,1.13rem);font-weight:300;color:var(--muted);line-height:1.6;}
   .formats{margin-top:2.5rem;font-family:var(--display);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-dim);}
 
@@ -328,7 +333,7 @@
     background:var(--silver-bright);
     padding:1rem 2.1rem;
     border-radius:2px;
-    transition:transform .3s cubic-bezier(.2,.6,.2,1), box-shadow .3s ease, background .3s ease;
+    transition:transform .42s var(--ease-spring), box-shadow .3s ease, background .3s ease;
   }
   .cta-book:hover{background:#fff;transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.5);}
   .cta-book:focus-visible{outline:2px solid var(--silver);outline-offset:4px;}
@@ -416,8 +421,19 @@
   .powered-mark{width:2.1em;height:2.1em;flex:none;}
 
   /* ---------- motion ---------- */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.6,.2,1),transform .9s cubic-bezier(.2,.6,.2,1);}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.6,.2,1),transform .9s var(--ease-spring);}
   .reveal.in{opacity:1;transform:none;}
+
+  /* native scroll-driven reveals (progressive enhancement; JS IntersectionObserver is the fallback) */
+  @supports (animation-timeline:view()){
+    @media (prefers-reduced-motion:no-preference){
+      /* :not(.in) lets the observer hand control back: once JS marks an element seen,
+         the animation detaches and .reveal.in{opacity:1} wins, so it can never strand
+         content invisible if the scroll timeline never completes (short page, tall viewport). */
+      .reveal:not(.in){animation:reveal-in both;animation-timeline:view();animation-range:entry 4% cover 26%;}
+    }
+  }
+  @keyframes reveal-in{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
 
   .h-el{opacity:0;transform:translateY(14px);}
   body.loaded .h-el{opacity:1;transform:none;transition:opacity 1s ease,transform 1s ease;}
@@ -449,28 +465,58 @@
     .cta-book.pulse{animation:none;}
   }
 
+  /* ---------- higher contrast on request ---------- */
+  @media (prefers-contrast:more){
+    :root{--muted:#bcbcc3;--muted-dim:#b4b4bc;--line:rgba(255,255,255,.42);--line-soft:rgba(255,255,255,.24);}
+    .cap-desc,.step-desc{color:#d2d2d7;}
+    .wm-bot{color:#fff;}
+  }
+
+  /* ---------- reduced transparency ---------- */
+  @media (prefers-reduced-transparency:reduce){
+    body::after{display:none;}
+    body::before{background:#0a0a0c;}
+    :root{--line:rgba(255,255,255,.24);--line-soft:rgba(255,255,255,.15);}
+    .cap-row.active{background:#101015;}
+  }
+
   /* ---------- print / PDF ---------- */
   @media print{
-    body{background:#fff !important;color:#1a1a1a !important;}
+    @page{margin:18mm;}
+    html{scroll-behavior:auto;}
+    body{background:#fff !important;color:#111 !important;font-family:var(--serif);line-height:1.5;-webkit-font-smoothing:auto;}
     body::before,body::after,.scroll-cue,.skip-link{display:none !important;}
-    .reveal,.h-el{opacity:1 !important;transform:none !important;}
-    .wm-top{-webkit-text-fill-color:#1a1a1a !important;color:#1a1a1a !important;background:none !important;}
-    .wm-rule{background:#1a1a1a !important;}
-    .eyebrow,.wm-bot,.hero-tag,.lead,.lead-detail,.signature,.who,.cap-no,.cap-term,.cap-desc,.step-no,.step-title,.step-desc,.formats,.prompt,.mail-link,.trust-line,.foot-meta,.powered{color:#1a1a1a !important;}
-    .cta-book{background:none !important;color:#1a1a1a !important;border:1px solid #1a1a1a !important;box-shadow:none !important;}
-    a{color:#1a1a1a !important;}
-    .cap-head .hr,.cap-row{border-color:#ccc !important;}
-    .hero{min-height:auto !important;padding:1rem 0 2rem !important;}
-    section{padding:1.2rem 0 !important;}
-    .secondary-link a[href^="http"]::after{content:" (" attr(href) ")";font-size:.85em;}
+    .reveal,.h-el{opacity:1 !important;transform:none !important;animation:none !important;}
+    .eyebrow,.wm-bot,.hero-tag,.lead,.lead-detail,.signature,.cap-term,.cap-desc,.step-no,.step-title,.step-desc,.formats,.prompt,.mail-link,.secondary-link,.trust-line,.foot-meta,.powered,a{color:#111 !important;}
+    .wm-top{-webkit-text-fill-color:#111 !important;color:#111 !important;background:none !important;font-variation-settings:'wght' 300;font-size:34pt !important;letter-spacing:.2em;}
+    .wm-rule{background:#111 !important;height:1px;transform:none !important;}
+    .wm-bot{font-size:11pt !important;letter-spacing:.5em;}
+    .hero{min-height:auto !important;padding:0 0 12pt !important;}
+    .hero-tag{font-size:12pt !important;margin-top:14pt;}
+    section{padding:14pt 0 !important;}
+    .lead{font-size:15pt !important;}
+    .lead-detail{font-size:11pt !important;color:#222 !important;}
+    .prompt{font-size:14pt !important;}
+    .cap-term,.step-title{font-size:11pt !important;font-variation-settings:'wght' 500;}
+    .cap-desc,.step-desc{font-size:10.5pt !important;color:#333 !important;}
+    .cap-head .hr,.cap-row,.steps,.step,footer{border-color:#bbb !important;}
+    .cap-row,.step,.byline,.cap-head{break-inside:avoid;page-break-inside:avoid;}
+    .cap-row.active{background:none !important;}
+    .cta-book{background:none !important;color:#111 !important;border:1px solid #111 !important;box-shadow:none !important;padding:8pt 14pt;}
+    .headshot{filter:grayscale(1);}
+    .secondary-link a[href^="http"]::after{content:" (" attr(href) ")";font-family:var(--display);font-size:8pt;letter-spacing:0;color:#555;}
+    .cta-book::after{content:" (mondorgroup.com)";font-family:var(--display);font-size:8pt;letter-spacing:.04em;}
   }
 
   /* ---------- signature accent · deep forest green ---------- */
   .wm-rule{background:linear-gradient(90deg,rgba(16,52,24,0) 0%,rgba(16,52,24,.95) 18%,rgba(16,52,24,.95) 82%,rgba(16,52,24,0) 100%);}
   .scroll-cue span{background:linear-gradient(180deg,rgba(16,52,24,.9) 0%,transparent 100%);}
   .step-no{transition:color .55s ease;}
-  .step.active .step-no{color:#348748;}
+  .step.active .step-no{color:#3f9553;}
   .cap-row.active .cap-term{color:#3f9553;}
+  /* variable-font weight settle on the active/hovered header */
+  .cap-row.active .cap-term,.step.active .step-title{font-variation-settings:'wght' 548;}
+  @media (hover:hover){.cap-row:hover .cap-term{font-variation-settings:'wght' 548;}}
   .mail-link:hover{color:#3f9553;border-color:rgba(16,52,24,.8);}
   .secondary-link a:hover{color:#3f9553;border-color:rgba(16,52,24,.7);}
   a:focus-visible,button:focus-visible{outline-color:#348748;}
@@ -479,6 +525,21 @@
   /* bottom accents */
   .powered-mark{color:#dcdcde;}
   footer{border-top-color:rgba(64,140,90,.16);}
+
+  /* ---------- Windows High Contrast / forced colors (kept last so it overrides the accent gradients) ---------- */
+  @media (forced-colors:active){
+    body::before,body::after{display:none;}
+    .wm-top{-webkit-text-fill-color:CanvasText;color:CanvasText;background:none;}
+    .wm-bot{color:CanvasText;}
+    .wm-rule{background:CanvasText;}
+    .cap-head .hr{background:CanvasText;}
+    .scroll-cue span{background:CanvasText;}
+    .cap-row.active{background:none;}
+    .cap-row.active .cap-term,.step.active .step-no,.step.active .step-title{color:CanvasText;}
+    .cta-book{background:ButtonFace;color:ButtonText;border:1px solid ButtonText;}
+    .powered{opacity:1;}
+    .powered-mark line,.powered-mark rect{stroke:CanvasText;}
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -640,6 +701,9 @@
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var els = document.querySelectorAll('.reveal');
+  // Native CSS scroll-driven animations (animation-timeline:view()) handle the visual
+  // reveal where supported. This observer is the universal safety net: it guarantees
+  // every .reveal becomes visible even if a browser can't run the scroll-driven path.
   if (reduce || !('IntersectionObserver' in window)) {
     els.forEach(function(el){ el.classList.add('in'); });
   } else {
